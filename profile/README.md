@@ -4,7 +4,10 @@
 
 Talkeo is an AI-first language tutor. The native apps (Mac, Windows) consume the Talkeo Cloud backend for text selection actions, voice practice with Leo, and structured learning from your captured vocabulary.
 
-Free with your own provider API keys. Optional Talkeo Cloud (managed) for zero-config.
+Two ways to use Talkeo:
+
+- **Self-hosted:** free, open source, bring your own provider keys.
+- **Managed:** Talkeo is your provider for everything (database, LLMs, voice, hosting). Zero config, paid.
 
 ## Repositories
 
