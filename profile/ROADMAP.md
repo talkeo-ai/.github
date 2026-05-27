@@ -15,12 +15,16 @@ Talkeo is an open-source AI assistant ecosystem focused on language learning and
 
 | Repo | Purpose | Status |
 |---|---|---|
-| [`talkeo`](https://github.com/talkeo-ai/talkeo) | Backend API + business logic + providers | Active development |
-| [`mac`](https://github.com/talkeo-ai/mac) | Mac app (Swift, native) | Active development |
-| [`windows`](https://github.com/talkeo-ai/windows) | Windows app (C# / WPF) | Active development |
-| [`infra`](https://github.com/talkeo-ai/infra) | Infrastructure as code (Terraform, AWS) | Active development |
-| [`agents`](https://github.com/talkeo-ai/agents) | Multi-agent orchestration + eval harness | Planned |
-| [`mcp`](https://github.com/talkeo-ai/mcp) | MCP server (consumable from Claude Desktop / Cursor) | Planned |
+| [`talkeo`](https://github.com/talkeo-ai/talkeo) | Backend API + business logic + providers | Active (Phase A) |
+| [`mac`](https://github.com/talkeo-ai/mac) | Mac app (Swift, native) | Active (Phase A) |
+| [`windows`](https://github.com/talkeo-ai/windows) | Windows app (C# / WPF) | Active (Phase A) |
+| [`infra`](https://github.com/talkeo-ai/infra) | Infrastructure as code (Terraform, AWS) | Active (Phase B.1) |
+| [`agents`](https://github.com/talkeo-ai/agents) | Multi-agent orchestration + eval harness | Planned (Phase C) |
+| [`mcp`](https://github.com/talkeo-ai/mcp) | MCP server (consumable from Claude Desktop / Cursor) | Planned (Phase C) |
+| [`web`](https://github.com/talkeo-ai/web) | Web frontend (Next.js) | Planned (Phase E) |
+| [`mobile`](https://github.com/talkeo-ai/mobile) | Mobile app (iOS / Android) | Planned (Phase E) |
+
+Each repo holds a single concern. Apps written in different languages (Python backend, Swift Mac, C# Windows, TypeScript web, mobile native) live in separate repos with their own toolchain, CI, and release cadence. They share no source code — instead, clients consume the backend's OpenAPI spec to generate type-safe API access.
 
 ## Phases
 
