@@ -8,7 +8,7 @@ Talkeo is an open-source AI assistant ecosystem focused on language learning and
 
 **Two ways to use Talkeo:**
 
-- **Self-hosted:** clone the public repos, bring your own provider API keys (Groq, Anthropic, ElevenLabs, etc.), run locally or on your own infrastructure.
+- **Self-hosted:** clone the public repos, bring your own provider API keys, run locally or on your own infrastructure.
 - **Managed (Talkeo Cloud):** zero-config, we host everything and route to providers internally.
 
 ## Repositories
@@ -30,9 +30,9 @@ Each repo holds a single concern. Apps written in different languages (Python ba
 
 ### Phase A — Mac MVP backend
 
-**Scope:** FastAPI backend with streaming endpoints, provider abstraction (LLM/STT/TTS), and 4 features powering the Mac app: translate, improve copy, capture text (OCR), pronunciation check.
+**Scope:** FastAPI backend with streaming endpoints and provider-agnostic ports, powering the Mac app's text features: translate, improve copy, capture text (OCR), and listen-to-pronunciation (one-shot TTS playback). LLM streams through the gateway; one-shot TTS through the speech abstraction. Realtime voice (STT + Leo sessions) lands in Phase B.1.
 
-**Stack:** Python 3.12, FastAPI, Pydantic v2, async streaming SSE. Initial deploy on fly.io. No persistence layer yet — endpoints are stateless.
+**Stack:** Python 3.12, FastAPI, Pydantic v2, async streaming SSE. Deploys to AWS (ECS). No persistence layer yet — endpoints are stateless.
 
 **Output:** public backend repo with clean architecture foundation, Mac app using it as daily driver.
 
@@ -66,7 +66,7 @@ Each repo holds a single concern. Apps written in different languages (Python ba
 
 ## Architecture
 
-See [`talkeo/docs/architecture.md`](https://github.com/talkeo-ai/talkeo/blob/main/docs/architecture.md) for the technical architecture: layered design (Clean / Hexagonal), provider abstraction via ports & adapters, prompts as data, and bounded contexts (Session, Pedagogy, User, Learning, Director, Pronunciation).
+See [`talkeo/docs/architecture.md`](https://github.com/talkeo-ai/talkeo/blob/main/docs/architecture.md) for the technical architecture: layered design (Clean / Hexagonal), provider abstraction via ports & adapters (LLM through a unified gateway, speech through voice plugins), prompts as data, and bounded contexts (Session, Pedagogy, User, Learning, Director).
 
 ## Contributing
 
