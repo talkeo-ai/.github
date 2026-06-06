@@ -28,17 +28,17 @@ Each repo holds a single concern. Apps written in different languages (Python ba
 
 ## Phases
 
-### Phase A — Mac MVP backend
+### Phase A — Mac MVP backend + voice loop
 
-**Scope:** FastAPI backend with streaming endpoints and provider-agnostic ports, powering the Mac app's text features: translate, improve copy, capture text (OCR), and listen-to-pronunciation (one-shot TTS playback). LLM streams through the gateway; one-shot TTS through the speech abstraction. Realtime voice (STT + Leo sessions) lands in Phase B.1.
+**Scope:** FastAPI backend (`api`) with streaming endpoints and provider-agnostic ports, plus a LiveKit Agents worker (`agent`) for realtime voice — both services in the same repo, sharing domain ports and engines. Powers the Mac app's text features (translate, improve copy, capture text via OCR, listen-to-pronunciation one-shot TTS) and the first realtime Leo voice loop. LLM via the LiteLLM gateway; speech via LiveKit plugins (TTS one-shot + STT, reused across surfaces per ADR-008). Persistence chassis (Postgres + Alembic, six schemas per bounded context) lands in this phase too — application tables follow per-context.
 
-**Stack:** Python 3.12, FastAPI, Pydantic v2, async streaming SSE. Deploys to AWS (ECS). No persistence layer yet — endpoints are stateless.
+**Stack:** Python 3.12, FastAPI, Pydantic v2, async streaming SSE, LiveKit Agents, LiteLLM gateway, PostgreSQL 16 with asyncpg + SQLAlchemy async, Alembic. Deploys to AWS (ECS).
 
-**Output:** public backend repo with clean architecture foundation, Mac app using it as daily driver.
+**Output:** public backend repo with clean architecture foundation, Mac app using it as daily driver, first realtime voice loop testable via LiveKit `console` mode.
 
 ### Phase B.1 — Cloud migration
 
-**Scope:** PostgreSQL on AWS RDS, full backend rewrite of the voice session pipeline under clean architecture, infrastructure refactor to production-grade Terraform modules (multi-env, modular, documented).
+**Scope:** Full data migration from the deprecated backend, infrastructure refactor to production-grade Terraform modules (multi-env, modular, documented), LiteLLM gateway deployed to ECS co-located with `api` + `agent`.
 
 **Stack:** PostgreSQL 16, SQLAlchemy 2.0 async, Alembic migrations, AWS (VPC, ECS Fargate, ALB, ACM, S3, CloudWatch), Docker production builds, GitHub Actions CI/CD.
 
