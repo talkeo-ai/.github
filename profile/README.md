@@ -15,7 +15,7 @@ Two ways to use Talkeo:
 |------|------|--------|
 | [`talkeo`](https://github.com/talkeo-ai/talkeo) | Backend API (FastAPI, provider-agnostic) | Active (Phase A) |
 | [`mac`](https://github.com/talkeo-ai/mac) | Talkeo for Mac (Swift, SwiftUI, AppKit) | Active (Phase A) |
-| [`windows`](https://github.com/talkeo-ai/windows) | Talkeo for Windows (C# / WPF) | Active (Phase A) |
+| [`windows`](https://github.com/talkeo-ai/windows) | Talkeo for Windows (C# / .NET 8, Windows App SDK) | Active (Phase A) |
 | [`infra`](https://github.com/talkeo-ai/infra) | Infrastructure as Code (Terraform, AWS) | Active (Phase B.1) |
 | [`agents`](https://github.com/talkeo-ai/agents) | Multi-agent orchestration + eval harness | Planned (Phase C) |
 | [`mcp`](https://github.com/talkeo-ai/mcp) | MCP server (Claude Desktop, Cursor, etc.) | Planned (Phase C) |
@@ -27,7 +27,7 @@ See the [ROADMAP](./ROADMAP.md) for phase details and the [backend architecture]
 ## Tech stack
 
 * **Backend.** Python, FastAPI, PostgreSQL with pgvector, Redis.
-* **Native clients.** Swift (Mac), C# / WPF (Windows). Future: TypeScript (web), native or React Native (mobile).
+* **Native clients.** Swift (Mac), C# / .NET 8 (Windows). Future: TypeScript (web), native or React Native (mobile).
 * **Infra.** AWS (ECS Fargate, RDS, S3, CloudFront, CloudWatch), Terraform.
 * **Voice.** Leo, the tutor agent. WebRTC streaming.
 * **Agents.** Multi-agent orchestration, RAG over user-captured selections, eval harness.

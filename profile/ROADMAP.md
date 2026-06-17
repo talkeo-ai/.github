@@ -17,7 +17,7 @@ Talkeo is an open-source AI assistant ecosystem focused on language learning and
 |---|---|---|
 | [`talkeo`](https://github.com/talkeo-ai/talkeo) | Backend API + business logic + providers | Active (Phase A) |
 | [`mac`](https://github.com/talkeo-ai/mac) | Mac app (Swift, native) | Active (Phase A) |
-| [`windows`](https://github.com/talkeo-ai/windows) | Windows app (C# / WPF) | Active (Phase A) |
+| [`windows`](https://github.com/talkeo-ai/windows) | Windows app (C# / .NET 8, Windows App SDK) | Active (Phase A) |
 | [`infra`](https://github.com/talkeo-ai/infra) | Infrastructure as code (Terraform, AWS) | Active (Phase B.1) |
 | [`agents`](https://github.com/talkeo-ai/agents) | Multi-agent orchestration + eval harness | Planned (Phase C) |
 | [`mcp`](https://github.com/talkeo-ai/mcp) | MCP server (consumable from Claude Desktop / Cursor) | Planned (Phase C) |
