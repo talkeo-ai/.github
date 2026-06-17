@@ -30,7 +30,7 @@ Each repo holds a single concern. Apps written in different languages (Python ba
 
 ### Phase A — Mac MVP backend + voice loop
 
-**Scope:** FastAPI backend (`api`) with streaming endpoints and provider-agnostic ports, plus a LiveKit Agents worker (`agent`) for realtime voice — both services in the same repo, sharing domain ports and engines. Powers the Mac app's text features (translate, improve copy, capture text via OCR, listen-to-pronunciation one-shot TTS) and the first realtime Leo voice loop. LLM via the LiteLLM gateway; speech via LiveKit plugins (TTS one-shot + STT, reused across surfaces per ADR-008). Persistence chassis (Postgres + Alembic, six schemas per bounded context) lands in this phase too — application tables follow per-context.
+**Scope:** FastAPI backend (`api`) with streaming endpoints and provider-agnostic ports, plus a LiveKit Agents worker (`agent`) for realtime voice — both services in the same repo, sharing domain ports and engines. Powers the Mac (and Windows) app's text features — translate (language-pair, streaming), improve (grammar/clarity, streaming), capture text via OCR, and listen / read-aloud (streaming TTS) — and the first realtime Leo voice loop. LLM via the LiteLLM gateway; speech via LiveKit plugins (streaming TTS + STT, reused across surfaces per ADR-008). Persistence chassis (Postgres + Alembic, six schemas per bounded context) lands in this phase too — application tables follow per-context.
 
 **Stack:** Python 3.12, FastAPI, Pydantic v2, async streaming SSE, LiveKit Agents, LiteLLM gateway, PostgreSQL 16 with asyncpg + SQLAlchemy async, Alembic. Deploys to AWS (ECS).
 
